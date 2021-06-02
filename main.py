@@ -3,10 +3,10 @@ from twilio.rest import Client
 
 
 account_sid = "ACcd587c473e96c7d2e9fe4c0e11648ae7"
-auth_token = "8e9ebf5ace7e76392ba7638e74a32a6c"
+auth_token = "" #YOUR AUTH_TOKEN
 
 
-API_KEY_STOCK = "CSA9LHPL3F9ME7GL"
+API_KEY_STOCK = "" #YOUR API_KEY 
 
 MY_STOCK_PARAMETERS = {
     "function": "TIME_SERIES_DAILY",
@@ -31,7 +31,7 @@ else:
 
 percentage_diff = (defference_stock/float(yesterday_data_close))*100
 
-API_KEY_NEWS = "c471dff0d57b4d7c8022d9ed12573781"
+API_KEY_NEWS = "" #YOUR_API_KEY
 API_NEWS = "https://newsapi.org/v2/everything"
 
 MY_NEWS_PARAMETERS = {
@@ -52,7 +52,7 @@ if abs(percentage_diff) > 0.7:
         client = Client(account_sid, auth_token)
         message = client.messages.create(
             body=f"TESLA Stock : {round(abs(percentage_diff))}% {up_down_stock} \n\n News: \n\n Headline: {title} \n\n Description: {decrip} ",
-            from_='+16614413360',
-            to='+917001459154'
+            from_='',#YOUR NUMBER
+            to=''#YOUR SAVED NUMBER
         )
         print(message.status)
